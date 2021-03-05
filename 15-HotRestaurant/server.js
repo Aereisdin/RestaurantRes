@@ -18,17 +18,16 @@ app.get('/tables', (req, res) => res.sendFile(path.join(__dirname, 'tables.html'
 const reservations = [];
 
 //Display all reservations
-app.get('/view', (req, res) => res.json(reservations));
+app.get('/tables', (req, res) => res.json(reservations));
 
 
-app.post('/make', (req, res) => {
+app.post('/reserve', (req, res) => {
     // req.body hosts is equal to the JSON post sent from the user
     // This works because of our body parsing middleware
     const newReservation = req.body;
   
     // Using a RegEx Pattern to remove spaces from newReservation
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newReservation.routeName = newReservation.name.replace(/\s+/g, '').toLowerCase();
     console.log(newReservation);
   
     reservations.push(newReservation);
