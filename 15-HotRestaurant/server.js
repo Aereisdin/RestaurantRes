@@ -26,7 +26,7 @@ app.post('/make', (req, res) => {
     // This works because of our body parsing middleware
     const newReservation = req.body;
   
-    // Using a RegEx Pattern to remove spaces from newCharacter
+    // Using a RegEx Pattern to remove spaces from newReservation
     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
     newReservation.routeName = newReservation.name.replace(/\s+/g, '').toLowerCase();
     console.log(newReservation);
